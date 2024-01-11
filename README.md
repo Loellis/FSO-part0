@@ -3,7 +3,7 @@ First part of University of Helsinki's Full Stack open course.
 
 
 ## Exercise 0.4 - New note diagram
-Steps when posting a new note:
+**Steps when posting a new note:**
 1. On button click, browser sends user input to server
 2. Server sends redirect to new location (302)
 3. Browser reloads webpage, requests HTML
@@ -16,7 +16,8 @@ Steps when posting a new note:
 10. Server returns JSON
 11. Browser executes the callback to render the notes including the new ones
 
-On button click the following sequence will occur:
+**On button click the following sequence will occur:**
+```mermaid
 sequenceDiagram
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     server-->>browser: 302 Redirect to https://studies.cs.helsinki.fi/exampleapp/notes
@@ -26,9 +27,9 @@ sequenceDiagram
     server-->>browser: CSS file (304 Not Modified)
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
     server-->>browser: JS file (304 Not Modified)
-    Note over browser,server: Browser executes JS that fetches JSON data from server
+    Note right of browser: Browser executes JS that fetches JSON data from server
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     server-->>browser: [{...} , ..., {...}]
-    Note over browser,server: Browser executes callback function to render notes
-
+    Note right of browser: Browser executes callback function to render notes
+``````
 
